@@ -28,7 +28,15 @@ class Hina_Ajax_Comment {
 		// if not installed WP-API, not to activate.
 		if ( ! defined( 'REST_API_VERSION' ) ) {
 			deactivate_plugins( HINA_AJAX_COMMENT_MAIN_ENTRY );
-			echo 'ajax comments を使用するには <a href="https://wordpress.org/plugins/rest-api/">WP-API</a> をインストール、有効化する必要があります。 ';
+
+			printf(
+				/* translators: %s: 'WP-API' link */
+				__( 'You have to install %s (Version 2) to use Ajax Comments!', 'hina-ajax-comment' ),
+				sprintf( '<a href="%s">WP-API</a>',
+					/* translators: WP-API on W.org plugin directory in your language */
+					__( 'https://wordpress.org/plugins/rest-api/', 'hina-ajax-comment' )
+				)
+			);
 		}
 
 	}
