@@ -83,6 +83,7 @@ jQuery(function ($) {
 
 		var xhr = isLoggedIn ? requestPostCommentLoggedInUser(e, $form) : requestPostCommentGuest(e, $form);
 		$formSubmit.html('<i>Submitting...</i>');
+		$form.find(':input').prop('disabled',true);
 		xhr.then(function (res) {
 			var html = '<ol class="comment-list">' +
 				'<li id="comment-' + res.id + '" class="comment even thread-even depth-1">' +
@@ -106,6 +107,7 @@ jQuery(function ($) {
 			//
 			console.error(jqXHR);
 			$formSubmit.html('<i>Error! :' + textStatus + '</i>').append($submitBtn);
+			$form.find(':input').prop('disabled',false);
 
 		});
 
