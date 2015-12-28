@@ -1,3 +1,4 @@
+/* global HinaACOptions */
 /// <reference path="../../rest-api/wp-api.js" />
 /// <reference path="../typings/tsd.d.ts" />
 /* global wp */
@@ -5,7 +6,7 @@
 
 
 jQuery(function ($) {
-	
+	'use strict';
 	/**
 	 * 
 	 * @return {JQueryXHR}
@@ -61,9 +62,9 @@ jQuery(function ($) {
 			parent: parent,
 			status: "approved"
 		};
-		var comment = new wp.api.models.Comment(data);
+		var Comment = new wp.api.models.Comment(data);
 		/** @type {JQueryXHR} jqxhr */
-		return comment.save();
+		return Comment.save();
 	}
 
 

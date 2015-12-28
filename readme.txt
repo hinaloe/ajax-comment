@@ -22,6 +22,10 @@ so, its not able to be used with like Jetpack comment form and othere original/o
 
 - post comment with ajax
 - Lite -- this plugin only using a little of jQuery feature to modify DOM, and very tiny js & PHP code.
+
+**Require**
+
+You have to install [WP REST API v2](https://wordpress.org/plugins/rest-api/) to use this plugin.
   
 
 == Changelog ==
