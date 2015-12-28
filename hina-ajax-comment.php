@@ -2,10 +2,10 @@
 /*
 Plugin Name: ajax Post Comment
 Version: 0.1-alpha
-Description: PLUGIN DESCRIPTION HERE
-Author: YOUR NAME HERE
-Author URI: YOUR SITE HERE
-Plugin URI: PLUGIN SITE HERE
+Description: Post comment form on frontend tobe ajax using WP REST API Version.2
+Author: Hinaloe
+Author URI: https://hinaloe.net/
+Plugin URI: https://hinaloe.net/portfolio/ajax-comment
 Text Domain: hina-ajax-comment
 Domain Path: /languages
 */
