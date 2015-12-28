@@ -17,6 +17,10 @@ class Hina_Ajax_Comment {
 
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'hina-ajax-comment', plugins_url( '/js/ajax-comments.js' , HINA_AJAX_COMMENT_MAIN_ENTRY ), array( 'jquery', 'wp-api' ), null/* @todo Version */, true );
+		wp_localize_script( 'hina-ajax-comment', 'HinaACOptions', array(
+			'req' => get_option( 'require_name_email' ),
+			'CommentSaved' => __( 'Comment submitted.', 'hina-ajax-comment' ),
+		) );
 	}
 
 
