@@ -19,7 +19,13 @@ jQuery(function ($) {
 		var post = $form.find('input[name=comment_post_ID]').val();
 		var parent = $form.find('input[name=comment_parent]').val();
 
+		var IsRequireEmailName = Boolean(+HinaACOptions.req);
 
+		if( IsRequireEmailName && ( ! name.length || ! email.length || ! comment.length ) ) {
+			return (new $.Deferred()).reject({error:"Invalid input" , statusText: 'Name, email, and comment content are required.'},'Name, email, and comment content are required.');
+		} else if ( ! IsRequireEmailName && ( ! comment.length ) ) {
+			return (new $.Deferred()).reject({error:"Invalid input", statusText: 'Comment content is required.'}, 'Comment content is required.');
+		}
 
 		var data = {
 			author_email: email,
@@ -53,8 +59,10 @@ jQuery(function ($) {
 		var comment = $form.find('textarea[name=comment]').val();
 		var post = $form.find('input[name=comment_post_ID]').val();
 		var parent = $form.find('input[name=comment_parent]').val();
-
-
+		
+		if ( ! comment.length ) {
+			return (new $.Deferred()).reject({error:"Invalid input", statusText: 'Comment content is required.'}, 'Comment content is required.');
+		}
 
 		var data = {
 			content: comment,
@@ -78,7 +86,7 @@ jQuery(function ($) {
 
 		var $formSubmit = $form.find('.form-submit');
 
-
+			
 
 
 
@@ -124,5 +132,7 @@ jQuery(function ($) {
 
 		return false;
 	});
+	
+	$( 'form.comment-form' ).removeAttr('novalidate');
 
 });
