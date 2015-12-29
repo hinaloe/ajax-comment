@@ -22,9 +22,9 @@ jQuery(function ($) {
 		var IsRequireEmailName = Boolean(+HinaACOptions.req);
 
 		if( IsRequireEmailName && ( ! name.length || ! email.length || ! comment.length ) ) {
-			return (new $.Deferred()).reject({error:"Invalid input" , statusText: 'Name, email, and comment content are required.'},'Name, email, and comment content are required.');
+			return $.Deferred().reject({error:"Invalid input" , statusText: 'Name, email, and comment content are required.'},'Name, email, and comment content are required.');
 		} else if ( ! IsRequireEmailName && ( ! comment.length ) ) {
-			return (new $.Deferred()).reject({error:"Invalid input", statusText: 'Comment content is required.'}, 'Comment content is required.');
+			return $.Deferred().reject({error:"Invalid input", statusText: 'Comment content is required.'}, 'Comment content is required.');
 		}
 
 		var data = {
@@ -61,7 +61,7 @@ jQuery(function ($) {
 		var parent = $form.find('input[name=comment_parent]').val();
 		
 		if ( ! comment.length ) {
-			return (new $.Deferred()).reject({error:"Invalid input", statusText: 'Comment content is required.'}, 'Comment content is required.');
+			return $.Deferred().reject({error:"Invalid input", statusText: 'Comment content is required.'}, 'Comment content is required.');
 		}
 
 		var data = {
