@@ -9,6 +9,7 @@ class Hina_Ajax_Comment {
 
 	private function __construct() {
 		$this->add_actions();
+		$this->load_textdomain();
 	}
 
 	public function add_actions() {
@@ -21,6 +22,10 @@ class Hina_Ajax_Comment {
 			'req' => get_option( 'require_name_email' ),
 			'CommentSaved' => __( 'Comment submitted.', 'hina-ajax-comment' ),
 		) );
+	}
+
+	public function load_textdomain() {
+		load_plugin_textdomain( 'hina-ajax-comment' );
 	}
 
 
