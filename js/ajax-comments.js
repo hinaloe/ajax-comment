@@ -88,16 +88,12 @@ jQuery(function ($) {
 		var isLoggedIn = $form.parents('body').hasClass('logged-in');
 
 		var $formSubmit = $form.find('.form-submit');
-
-			
-
-
-
+	
 		var xhr = isLoggedIn ? requestPostCommentLoggedInUser(e, $form) : requestPostCommentGuest(e, $form);
 
-		var $status = $formSubmit.find('i');
+		var $status = $form.find('.form-msg i');
 		if( $status.length === 0 ) {
-			$status = $formSubmit.prepend('<i />').find('i');
+			$status = $("<div class=form-msg id=hac-mess><i/></div>").insertBefore($formSubmit).find('i');
 		}
 		$status.text( 'Submitting...' )
 		$form.find(':input').prop('disabled',true);
@@ -119,10 +115,8 @@ jQuery(function ($) {
 
 			$form.html(html);
 			$("#reply-title").text(HinaACOptions.CommentSaved);
-			// $formSubmit.html("Finished");//
 			console.log(res);
 		}).fail(function (jqXHR, textStatus) {
-			//
 			console.error(jqXHR);
 			var err = jqXHR.responseJSON && jqXHR.responseJSON.message ? jqXHR.responseJSON&&jqXHR.responseJSON.message : jqXHR.statusText;
 			$status.text('Error!: ' + err );
