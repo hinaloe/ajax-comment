@@ -7,9 +7,12 @@
 
 jQuery(function ($) {
 	'use strict';
+	
 	/**
 	 * 
-	 * @return {JQueryXHR}
+	 * @param {JQueryEventObject} e
+	 * @param {JQuery} $form
+	 * @return {JQueryDeferred} jqXHR or Error -- jquery promise obj
 	 */
 	var requestPostCommentGuest = function (e, $form) {
 		var name = $form.find('input[name=author]').val();
@@ -38,21 +41,21 @@ jQuery(function ($) {
 
 
 
-
+		/** @type JQueryDeferred */
 		return jQuery.ajax(wp.api.models.Comment.prototype.urlRoot,
 			{
 				data: JSON.stringify(data),
 				method: 'post',
 				contentType: 'application/json',
 				dataType: 'json'
-			})
+			});
 	}
 	
 
 	/**
 	 * @param {JQueryEventObject} e Event
 	 * @param {JQuery} $form FormObj
-	 * @return {JQueryXHR}
+	 * @return {JQueryDeferred}
 	 */
 	var requestPostCommentLoggedInUser = function (e, /** @type JQuery */ $form) {
 
@@ -71,7 +74,7 @@ jQuery(function ($) {
 			status: "approved"
 		};
 		var Comment = new wp.api.models.Comment(data);
-		/** @type {JQueryXHR} jqxhr */
+		/** @type {JQueryDeferred} jqxhr */
 		return Comment.save();
 	}
 
@@ -122,7 +125,7 @@ jQuery(function ($) {
 			//
 			console.error(jqXHR);
 			var err = jqXHR.responseJSON && jqXHR.responseJSON.message ? jqXHR.responseJSON&&jqXHR.responseJSON.message : jqXHR.statusText;
-			$status.text('Error! :' + err );
+			$status.text('Error!: ' + err );
 			$form.find(':input').prop('disabled',false);
 
 		});
