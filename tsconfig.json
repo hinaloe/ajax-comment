@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "target": "es5",
+    "outDir": "./js",
+    "rootDir": "./src/ts/",
+    "sourceMap": true
+  },
+  "files": [
+    "./src/ts/ajax-comments.ts"
+  ]
+}

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: ajax Post Comment
-Version: 0.1-alpha
+Version: 0.1-alpha-20151231
 Description: Post comment form on frontend tobe ajax using WP REST API Version.2
 Author: Hinaloe
 Author URI: https://hinaloe.net/
