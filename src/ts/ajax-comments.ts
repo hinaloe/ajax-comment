@@ -55,7 +55,7 @@ jQuery(function($) {
 	 * 
 	 * @param {JQueryEventObject} e Event
 	 * @param {JQuery} $form FormObj
-	 * @return {JQueryPromise}
+	 * @return {JQueryPromise<WPApi.CommentResponse>}
 	 */
 	const requestPostCommentLoggedInUser = (e: JQueryEventObject, $form: JQuery): JQueryPromise<WPApi.CommentResponse> => {
 
