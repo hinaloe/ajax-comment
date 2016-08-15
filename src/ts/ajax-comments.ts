@@ -1,5 +1,5 @@
 /*!
- * Hina ajax Comment 0.0.1-alpha-20151231
+ * Hina ajax Comment 0.0.1-alpha-20160815
  */
 /* global HinaACOptions */
 /// <reference path="../../typings/tsd.d.ts" />
@@ -35,7 +35,7 @@ jQuery(function($) {
 			return $.Deferred().reject({ error: "Invalid input", statusText: 'Comment content is required.' }, 'Comment content is required.');
 		}
 
-		let data: WPApi.Comment = {
+		const data: WPApi.Comment = {
 			author_email: email,
 			author_name: name,
 			author_url: url,
@@ -44,13 +44,9 @@ jQuery(function($) {
 			parent: parent
 		};
 
-		return jQuery.ajax(wp.api.models.Comment.prototype.urlRoot,
-			{
-				data: JSON.stringify(data),
-				method: 'post',
-				contentType: 'application/json',
-				dataType: 'json'
-			});
+		const Comment: WP_API.models.Comment = new wp.api.models.Comment(data);
+
+		return Comment.save();
 	}
 	
 
@@ -71,13 +67,13 @@ jQuery(function($) {
 			return $.Deferred().reject({ error: "Invalid input", statusText: 'Comment content is required.' }, 'Comment content is required.');
 		}
 
-		let data: WPApi.Comment = {
+		const data: WPApi.Comment = {
 			content: comment,
 			post: post,
 			parent: parent,
 			status: "approved"
 		};
-		let Comment: WP_API.models.Comment = new wp.api.models.Comment(data);
+		const Comment: WP_API.models.Comment = new wp.api.models.Comment(data);
 
 		return Comment.save();
 	}
@@ -102,7 +98,7 @@ jQuery(function($) {
 		$status.text('Submitting...')
 		$form.find(':input').prop('disabled', true);
 		xhr.then(function(res) {
-			let html: string = '<ol class="comment-list">' +
+			const html: string = '<ol class="comment-list">' +
 				'<li id="comment-' + res.id + '" class="comment even thread-even depth-1">' +
 				'<article id="div-comment-' + res.id + '" class="comment-body">' +
 				'<footer class="comment-meta">' +
@@ -123,7 +119,7 @@ jQuery(function($) {
 			return res;
 		}).fail(function(jqXHR: JQueryXHR, textStatus: string) {
 			console.error(jqXHR);
-			var err:string = jqXHR.responseJSON && jqXHR.responseJSON.message ? jqXHR.responseJSON.message : jqXHR.statusText;
+			const err:string = jqXHR.responseJSON && jqXHR.responseJSON.message ? jqXHR.responseJSON.message : jqXHR.statusText;
 			$status.text('Error!: ' + err);
 			$form.find(':input').prop('disabled', false);
 

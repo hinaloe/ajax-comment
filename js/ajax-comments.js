@@ -1,5 +1,5 @@
 /*!
- * Hina ajax Comment 0.0.1-alpha-20151231
+ * Hina ajax Comment 0.0.1-alpha-20160815
  */
 jQuery(function ($) {
     'use strict';
@@ -25,12 +25,8 @@ jQuery(function ($) {
             post: post,
             parent: parent
         };
-        return jQuery.ajax(wp.api.models.Comment.prototype.urlRoot, {
-            data: JSON.stringify(data),
-            method: 'post',
-            contentType: 'application/json',
-            dataType: 'json'
-        });
+        var Comment = new wp.api.models.Comment(data);
+        return Comment.save();
     };
     var requestPostCommentLoggedInUser = function (e, $form) {
         var comment = $form.find('textarea[name=comment]').val();
