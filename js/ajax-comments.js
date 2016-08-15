@@ -1,5 +1,5 @@
 /*!
- * Hina ajax Comment 0.0.1-alpha-20160815
+ * Hina ajax Comment 0.0.1-alpha-20160816
  */
 jQuery(function ($) {
     'use strict';

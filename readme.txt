@@ -30,6 +30,10 @@ You have to install [WP REST API v2](https://wordpress.org/plugins/rest-api/) to
 
 == Changelog ==
 
+= 2016-08-16 =
+- Support hi resolution icon. (for HiDPI screen: thats well known like as Retina)
+- Show the message 'Your comment is awaiting moderation'. You can customize message with translate.
+
 = 2016-08-15 =
 Compatibility with last version of wp-api.js
 
