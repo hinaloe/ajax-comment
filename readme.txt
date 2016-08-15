@@ -30,6 +30,9 @@ You have to install [WP REST API v2](https://wordpress.org/plugins/rest-api/) to
 
 == Changelog ==
 
+= 2016-08-15 =
+Compatibility with last version of wp-api.js
+
 = 0.1 =
 * Init 
 
