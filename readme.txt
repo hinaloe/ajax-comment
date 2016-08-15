@@ -1,6 +1,6 @@
 === ajax Post Comment ===
 Contributors: hnle
-Tags: ajax, rest-api, wp-api
+Tags: ajax, rest-api, wp-api, comment, comments
 Requires at least: 4.4
 Tested up to: 4.6
 Stable tag: trunk
