@@ -4,6 +4,8 @@
 .gitignore
 .svnignore
 .travis.yml
+.vscode
+tsconfig.json
 Gruntfile.js
 LINGUAS
 Makefile
