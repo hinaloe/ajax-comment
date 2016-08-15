@@ -21,6 +21,7 @@ class Hina_Ajax_Comment {
 		wp_localize_script( 'hina-ajax-comment', 'HinaACOptions', array(
 			'req' => get_option( 'require_name_email' ),
 			'CommentSaved' => __( 'Comment submitted.', 'hina-ajax-comment' ),
+			'WaitingModeration' => __( '≪Your comment is awaiting moderation.≫', 'hina-ajax-comment' ),
 		) );
 	}
 

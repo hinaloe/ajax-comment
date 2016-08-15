@@ -98,7 +98,7 @@ jQuery(function($) {
 		$status.text('Submitting...')
 		$form.find(':input').prop('disabled', true);
 		xhr.then(function(res) {
-			const html: string = '<ol class="comment-list">' +
+			let html: string = '<ol class="comment-list">' +
 				'<li id="comment-' + res.id + '" class="comment even thread-even depth-1">' +
 				'<article id="div-comment-' + res.id + '" class="comment-body">' +
 				'<footer class="comment-meta">' +
@@ -106,8 +106,11 @@ jQuery(function($) {
 				'<img src="' + res.author_avatar_urls["48"] + '" srcset="' + res.author_avatar_urls["96"]  + ' 2x" class="avatar photo avatar-default" />' +
 				'<b>' + res.author_name + '</b>' +
 				'</div><!-- .comment-author -->' +
-				'</footer><!-- .comment-meta -->' +
-				'<div class="comment-content">' + res.content.rendered + '</div><!-- .comment-content -->' +
+				'</footer><!-- .comment-meta -->';
+			if(res.status === 'hold') {
+				html += `<div class="comment-status">${HinaACOptions.WaitingModeration}</div>`;
+			}
+			html += '<div class="comment-content">' + res.content.rendered + '</div><!-- .comment-content -->' +
 				'</article><!-- .comment-body -->' +
 				'</li><!-- #comment-## -->' +
 				'</ol><!-- .comment-list -->';

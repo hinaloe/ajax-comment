@@ -66,8 +66,11 @@ jQuery(function ($) {
                 '<img src="' + res.author_avatar_urls["48"] + '" srcset="' + res.author_avatar_urls["96"] + ' 2x" class="avatar photo avatar-default" />' +
                 '<b>' + res.author_name + '</b>' +
                 '</div><!-- .comment-author -->' +
-                '</footer><!-- .comment-meta -->' +
-                '<div class="comment-content">' + res.content.rendered + '</div><!-- .comment-content -->' +
+                '</footer><!-- .comment-meta -->';
+            if (res.status === 'hold') {
+                html += "<div class=\"comment-status\">" + HinaACOptions.WaitingModeration + "</div>";
+            }
+            html += '<div class="comment-content">' + res.content.rendered + '</div><!-- .comment-content -->' +
                 '</article><!-- .comment-body -->' +
                 '</li><!-- #comment-## -->' +
                 '</ol><!-- .comment-list -->';
