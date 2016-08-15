@@ -103,7 +103,7 @@ jQuery(function($) {
 				'<article id="div-comment-' + res.id + '" class="comment-body">' +
 				'<footer class="comment-meta">' +
 				'<div class="comment-author vcard">' +
-				'<img src="' + res.author_avatar_urls["48"] + '" class="avatar photo avatar-default" />' +
+				'<img src="' + res.author_avatar_urls["48"] + '" srcset="' + res.author_avatar_urls["96"]  + ' 2x" class="avatar photo avatar-default" />' +
 				'<b>' + res.author_name + '</b>' +
 				'</div><!-- .comment-author -->' +
 				'</footer><!-- .comment-meta -->' +
