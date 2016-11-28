@@ -21,6 +21,7 @@ class Hina_Ajax_Comment {
 	public function add_actions() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		add_filter( 'rest_allow_anonymous_comments', '__return_true' );
 	}
 
 	/**
