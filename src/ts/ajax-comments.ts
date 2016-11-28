@@ -1,5 +1,5 @@
 /*!
- * Hina ajax Comment 0.0.1-alpha-20160816
+ * Hina ajax Comment 0.0.1-alpha-20161129
  */
 /* global HinaACOptions */
 /// <reference path="../../typings/tsd.d.ts" />
@@ -11,10 +11,10 @@ declare var HinaACOptions: any;
 
 jQuery(function($) {
 	'use strict';
-	
+
 	/**
 	 * ajax action visitor
-	 * 
+	 *
 	 * @param {JQueryEventObject} e
 	 * @param {JQuery} $form
 	 * @return {JQueryPromise<WPApi.CommentResponse>} jqXHR or Error -- jquery promise obj
@@ -48,11 +48,11 @@ jQuery(function($) {
 
 		return Comment.save();
 	}
-	
+
 
 	/**
 	 * ajax action logged-in user
-	 * 
+	 *
 	 * @param {JQueryEventObject} e Event
 	 * @param {JQuery} $form FormObj
 	 * @return {JQueryPromise<WPApi.CommentResponse>}

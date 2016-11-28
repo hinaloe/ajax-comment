@@ -30,6 +30,9 @@ You have to install [WP REST API v2](https://wordpress.org/plugins/rest-api/) to
 
 == Changelog ==
 
+= 2016-11-29 =
+- compatible to WP 4.7 (In wp 4.7, it not need WP-API Plugin. it included in core!)
+
 = 2016-09-20 =
 - renew way to detect WP-API
 
